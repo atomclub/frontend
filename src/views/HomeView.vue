@@ -88,7 +88,7 @@ ul {
   color: rgb(0 179 250);
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .overview {
     display: block;
   }
@@ -102,8 +102,11 @@ ul {
   }
 
   .logo img {
-    width: 160px;
+    display: block;
+    width: 110px;
+    align-items: center;
     height: auto;
+    margin: 0 auto;
   }
 
 }
