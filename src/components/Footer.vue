@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 <template>
   <footer>
-    <p>Developed with ❤️ by <a href="https://github.com/chemio9">Chemio9</a>. </p>
-    <p>Copyright (c) 2024 Atom Club chengruichen3<sup>AT</sup>gmail.com</p>
+    <p>Developed with ❤️ by <a href="https://github.com/chemio9">Chemio9</a> from <a href="https://github.com/atomclub/frontend">Atom Club</a>. </p>
+    <p>Copyright (c) 2024 HeartBeat Club</p>
   </footer>
 </template>
 <style scoped>
