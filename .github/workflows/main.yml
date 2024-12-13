@@ -14,7 +14,11 @@ jobs:
         with:
           node-version: latest
       - name: Build
-        run: pnpm build
+        run: pnpm build-only 
+        # Separate build and type check, 
+        # because *.d.ts files aren't generated before build
+      - name: Type Check
+        run: pnpm type-check
       - name: Compress action step
         uses: a7ul/tar-action@v1.1.0
         id: compress
