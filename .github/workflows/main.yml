@@ -1,9 +1,9 @@
 name: CI build
 on:
   push:
-    branches: main
+    branches: [main]
   pull_request:
-    branches: main
+    branches: [main]
 
 jobs:
   build:
@@ -14,11 +14,17 @@ jobs:
         with:
           node-version: latest
       - name: Build
-        run: pnpm build-only 
-        # Separate build and type check, 
+        run: pnpm build-only
+        # Separate build and type check,
         # because *.d.ts files aren't generated before build
       - name: Type Check
         run: pnpm type-check
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: |
+            ./dist/
       - name: Compress action step
         uses: a7ul/tar-action@v1.1.0
         id: compress
@@ -28,12 +34,6 @@ jobs:
           files: |
             ./dist
           outPath: dist.tar.gz
-      - name: Archive build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: |
-            ./dist.tar.gz
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
